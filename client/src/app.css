@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    height: 100vw;
+
+    align-items: center;
+    justify-content: center;
+}
+
