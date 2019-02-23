@@ -1,0 +1,9 @@
+.controls-container {
+    margin: 0.5rem auto;
+}
+
+.nav-button {
+    cursor: pointer;
+    text-decoration: underline;
+    margin: auto 0.5rem;
+}

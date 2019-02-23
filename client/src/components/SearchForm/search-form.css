@@ -1,0 +1,67 @@
+.main-container {
+    padding: 1rem;
+}
+
+.switch-container {
+    margin: 2rem auto 1rem;
+    padding: 1rem;
+    display: flex;
+    width: 90%;
+    border-bottom: 1px double #333;
+
+    justify-content: space-around;
+}
+.radio-field > * {
+    margin-left: 0.5rem;
+}
+
+.form-container {
+    width: 80vw;
+    margin: auto;
+}
+
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.form-field label {
+    flex: 1 3 100%;
+}
+
+.form-field input {
+    flex: 3 1 100%;
+}
+
+/* Thanks to oldboy [coderwall] for the select style */
+.select-multifield {
+    margin: 1rem auto 1rem;
+    background: #fafafa url("arrow-down.png") no-repeat 15% 50% ;
+}
+
+.select-multifield > input{
+    flex: 3 1 75%;
+}
+
+.select-multifield > select {
+    flex: 1 3 24%;
+
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+@media (min-width: 768px) {
+    .switch-container {
+        width: 60%;
+    }
+    .form-field {
+    flex-flow: row nowrap;
+    }
+    .select-multifield {
+    margin: auto;
+    }
+}
