@@ -7,6 +7,10 @@
     justify-content: center;
 }
 
+input[type=submit]:disabled {
+  background: #dedede;
+}
+
 .button {
   border: none;
   border-radius: 10px;

@@ -158,7 +158,12 @@ class SearchForm extends React.Component {
                                         </div>
                                 </>
                         }
-                        <input type="submit" value="submit" className="button success fullwidth"/>
+                        <input 
+                                type="submit" 
+                                value="submit" 
+                                disabled={term === ''}
+                                className="button success fullwidth"
+                        />
                         </form>
                 </div>
                 );
