@@ -4,7 +4,8 @@
   "description": "A simple app to explore the google books api",
   "main": "server.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Layer",
   "license": "ISC",
