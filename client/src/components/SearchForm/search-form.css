@@ -16,28 +16,31 @@
 }
 
 .form-container {
-    width: 80vw;
     margin: auto;
+    max-width: 768px;
 }
 
 .form-field {
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
+    margin: 0.5rem;
 }
 
 .form-field label {
     flex: 1 3 100%;
+    padding: 0.5rem;
 }
 
 .form-field input {
     flex: 3 1 100%;
+    padding: 0.5rem 0 0 0.5rem;
 }
 
 /* Thanks to oldboy [coderwall] for the select style */
 .select-multifield {
-    margin: 1rem auto 1rem;
-    background: #fafafa url("arrow-down.png") no-repeat 15% 50% ;
+    margin: 1rem auto;
+    background: transparent url("arrow-down.png") no-repeat 17% 50% ;
 }
 
 .select-multifield > input{
@@ -46,7 +49,7 @@
 
 .select-multifield > select {
     flex: 1 3 24%;
-
+    padding-left: 1rem;
     border: none;
     box-shadow: none;
     background: transparent;

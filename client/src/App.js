@@ -102,23 +102,27 @@ class App extends Component {
           </div> )
     else 
       return (
+        <>
+        <header>The Book Shelter</header>
         <div className="container">
-          < SearchForm submitQuery={this.submitQuery}/>
-          <CatchAllError>
-            { pagination[1]> 10 && !loading &&
-                <Pagination pages={pagination} changePage={this.changePage}/> }
-            { loading ?
-                <div className="lds-ring">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                    :
-                <CardGrid books={books} />
-            }
-          </CatchAllError>
+            < SearchForm submitQuery={this.submitQuery}/>
+            <CatchAllError>
+              { pagination[1]> 10 && !loading &&
+                  <Pagination pages={pagination} changePage={this.changePage}/> }
+              { loading ?
+                  <div className="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                      :
+                  <CardGrid books={books} />
+              }
+            </CatchAllError>
         </div>
+        <footer> Layer &copy; {new Date().getFullYear()}</footer>
+        </>
       );
   };
 };

@@ -143,9 +143,9 @@ class SearchForm extends React.Component {
                                                         onChange={this.handleChange}
                                                         value={classificationType}
                                                 >
-                                                        <option value="isbn">isbn</option>
-                                                        <option value="lccn">lccn</option>
-                                                        <option value="oclc">oclc</option>
+                                                        <option value="isbn">Isbn</option>
+                                                        <option value="lccn">Lccn</option>
+                                                        <option value="oclc">Oclc</option>
                                                 </select>
                                                         <input  
                                                                 type="text" 

@@ -1,14 +1,51 @@
+body {
+  --soft-gradient: #dedede;
+  --hard-gradient: #a9a9a9;
+}
+
+header, footer {
+  height: 5vh;
+  color: #efefef;
+  text-shadow: 2px 2px #335;
+  padding: 0.5rem 3rem;
+}
+header {
+  background-image: radial-gradient(ellipse at top, var(--soft-gradient), var(--hard-gradient));
+  font: bold 2rem  Verdana, sans-serif;
+}
+
+footer {
+  background-image: radial-gradient(ellipse at bottom, var(--soft-gradient), var(--hard-gradient));
+  text-align: center;
+}
+
+
 .container {
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 2fr 4fr 1fr;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
 
+    overflow: auto;
     align-items: flex-start;
+
+    background: radial-gradient(var(--soft-gradient), var(--hard-gradient));
+}
+
+input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #efefef;
+  border-radius: 5px 5px 0 0;
+}
+
+input:focus {
+  background: #efefef;
 }
 
 input[type=submit]:disabled {
-  background: #dedede;
+  background: #ababab;
+  cursor: not-allowed;
 }
 
 .button {
@@ -17,6 +54,7 @@ input[type=submit]:disabled {
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .fullwidth {
@@ -47,7 +85,7 @@ input[type=submit]:disabled {
   position: relative;
   width: 164px;
   height: 164px;
-  margin: auto;
+  margin: 6rem auto;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -56,7 +94,7 @@ input[type=submit]:disabled {
   width: 151px;
   height: 151px;
   margin: 6px;
-  border: 12px solid #bbb;
+  border: 12px solid #666;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #bbb transparent transparent transparent;
