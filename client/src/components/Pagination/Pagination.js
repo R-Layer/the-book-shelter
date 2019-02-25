@@ -3,6 +3,14 @@ import React from 'react'
 import './pagination.css';
 
 const Pagination = ({pages, changePage}) => {
+  /* If one of the following conditions fails 
+     it throws an error */
+  if (!(Array.isArray(pages) && 
+        Number.isInteger(pages[0]) &&
+        Number.isInteger(pages[1]))
+      ) {
+    throw new Error('bad pages format');
+  } 
   return (
     <div className="controls-container">
      {pages[0] >= 10 && 
@@ -19,7 +27,7 @@ const Pagination = ({pages, changePage}) => {
           Next &gt; 
       </span>}
     </div>
-  )
-}
+    );
+};
 
-export default Pagination
+export default Pagination;

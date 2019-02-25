@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import SearchForm from './components/SearchForm/SearchForm';
 import CardGrid from './components/CardGrid/CardGrid';
 import Pagination from './components/Pagination/Pagination';
+import CatchAllError from './components/Errors/CatchAllError';
 
 import './app.css'
 
@@ -51,9 +52,9 @@ class App extends Component {
         loading: false
       });
     };
-    const {items, totalItems} = await response.json();
-    console.log(items)
-    const booksData = items.map(book => ({
+    const data = await response.json();
+    const booksData = data.items ? 
+      data.items.map(book => ({
         id: book.id,
         authors: book.volumeInfo.authors,
         categories: book.volumeInfo.categories,
@@ -65,13 +66,13 @@ class App extends Component {
           book.volumeInfo.imageLinks.thumbnail :
           "question_book.png",
         title: book.volumeInfo.title
-        })
-    );
+        })) : [];
+    
         
     this.setState(prevState => ({
       books: booksData,
       lastQuery: queryParams,
-      pagination: [queryParams.index, totalItems],
+      pagination: [queryParams.index, data.totalItems],
       loading: false
     })
     );
@@ -92,6 +93,7 @@ class App extends Component {
   
   render() {
     const {pagination, books, loading, error} = this.state;
+    // display server-sourced errors
     if (error.statusCode)
       return (
           <div className="container">
@@ -102,18 +104,20 @@ class App extends Component {
       return (
         <div className="container">
           < SearchForm submitQuery={this.submitQuery}/>
-        { pagination[1]> 10 && !loading &&
-            <Pagination pages={pagination} changePage={this.changePage}/> }
-        { loading ?
-            <div className="lds-ring">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-                :
-            <CardGrid books={books} />
-        }
+          <CatchAllError>
+            { pagination[1]> 10 && !loading &&
+                <Pagination pages={pagination} changePage={this.changePage}/> }
+            { loading ?
+                <div className="lds-ring">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                    :
+                <CardGrid books={books} />
+            }
+          </CatchAllError>
         </div>
       );
   };

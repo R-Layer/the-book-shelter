@@ -32,7 +32,11 @@ const Card = ({book}) => {
 const CardGrid = ({books}) => {
   return (
     <div className="grid-container" >
-      {books.map(book => <Card book={book} key={book.id}/> )}
+      {books.length > 0 ?
+          books.map(book => <Card book={book} key={book.id}/> )
+                        :
+          <p className="text-centered">No volume corresponds to the inserted search criteria</p>
+      }
     </div>
   )
 };
