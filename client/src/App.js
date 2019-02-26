@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       books: [],
       lastQuery: {},
-      pagination: [0,0],
+      pagination: [0, 0],
       loading: false,
       error: {}
     };
@@ -92,7 +92,7 @@ class App extends Component {
   };
   
   render() {
-    const {pagination, books, loading, error} = this.state;
+    const {pagination, books, lastQuery, loading, error} = this.state;
     // display server-sourced errors
     if (error.statusCode)
       return (
@@ -117,7 +117,7 @@ class App extends Component {
                     <div></div>
                   </div>
                       :
-                  <CardGrid books={books} />
+                  <CardGrid books={books} firstSearch={Object.keys(lastQuery).length === 0} />
               }
             </CatchAllError>
         </div>

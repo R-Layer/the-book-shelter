@@ -29,13 +29,13 @@ const Card = ({book}) => {
   );
 };
 
-const CardGrid = ({books}) => {
+const CardGrid = ({books, firstSearch}) => {
   return (
     <div className="grid-container" >
-      {books.length > 0 ?
-          books.map(book => <Card book={book} key={book.id}/> )
+      {books.length === 0 && !firstSearch ?
+      <p className="text-centered">No volume corresponds to the inserted search criteria</p>
                         :
-          <p className="text-centered">No volume corresponds to the inserted search criteria</p>
+        books.map(book => <Card book={book} key={book.id}/> )          
       }
     </div>
   )
