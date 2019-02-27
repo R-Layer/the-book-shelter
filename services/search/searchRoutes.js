@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 
+const { ValidationError } = require('../../components/errors/customErrors');
+
 const router = express.Router();
 
 router.post('/', async (req, res, next) => {
@@ -9,10 +11,7 @@ router.post('/', async (req, res, next) => {
     let queryString = "";    
     const { queryParams } = req.body;
     if (!queryParams.term) {
-        let error = new Error();
-        error.statusCode = 400;
-        error.message = "At least one main query search term is required"
-        return next(error);
+        return next(new ValidationError("At least one main query search term is required"));
     };
         /* 'Translate' client named params to the actual api ones */
     for (param in queryParams) {

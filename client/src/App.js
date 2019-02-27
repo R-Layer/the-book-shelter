@@ -16,7 +16,7 @@ class App extends Component {
       lastQuery: {},
       pagination: [0, 0],
       loading: false,
-      error: {}
+      error: null
     };
   };
 
@@ -44,9 +44,7 @@ class App extends Component {
       body: JSON.stringify({queryParams})
     });
     if(response.status !== 200) {
-      console.log(response);
       const error = await response.json();
-      console.log('message',error);
       return this.setState({
         error: error,
         loading: false
@@ -69,13 +67,12 @@ class App extends Component {
         })) : [];
     
         
-    this.setState(prevState => ({
+    this.setState({
       books: booksData,
       lastQuery: queryParams,
       pagination: [queryParams.index, data.totalItems],
       loading: false
-    })
-    );
+    });
 
     sessionStorage.setItem('state', JSON.stringify(this.state));
   };
@@ -94,7 +91,7 @@ class App extends Component {
   render() {
     const {pagination, books, lastQuery, loading, error} = this.state;
     // display server-sourced errors
-    if (error.statusCode)
+    if (error)
       return (
           <div className="container">
           < SearchForm submitQuery={this.submitQuery}/>
