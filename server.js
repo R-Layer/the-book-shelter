@@ -1,3 +1,6 @@
+// Set app root
+global.__baseDir =__dirname;
+
 const http = require('http');
 require('dotenv').config();
 
